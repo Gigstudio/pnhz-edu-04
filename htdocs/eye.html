@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Eye</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<style>
+body {
+	background-color:#000;
+}
+
+.eye {
+    position: relative;
+	width: 60px;
+	height: 50px;
+	margin: 0px auto 5px auto;
+	top: 15%;
+	border-radius: 60px / 50px;
+	background-color: #eee;
+	background-repeat: no-repeat;
+	background-image: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 40, 
+						color-stop(.12, rgba(0,0,0,1) ),
+						color-stop(.22, hsl(190,50%,50%) ),
+						color-stop(.4, hsl(200,50%,30%) ),
+						color-stop(.5, rgba(255,255,255,0) )
+						);
+	background-image: -moz-radial-gradient(50% 50% 0deg, circle, rgba(0,0,0,1) 12%, hsl(190,50%,50%) 22%, hsl(200,50%,30%) 40%, rgba(255,255,255,0) 50% );
+	background-image:   -o-radial-gradient(50% 50% 0deg, circle, rgba(0,0,0,1) 12%, hsl(190,50%,50%) 22%, hsl(200,50%,30%) 40%, rgba(255,255,255,0) 50% );
+	background-image: 	   radial-gradient(50% 50% 0deg, circle, rgba(0,0,0,1) 12%, hsl(190,50%,50%) 22%, hsl(200,50%,30%) 40%, rgba(255,255,255,0) 50% );
+	
+	-webkit-box-shadow: inset rgba(0,0,0,.4) 0 -1px 3px 1px, inset rgba(0,0,0,.5) 0 -5px 20px,  rgba(0,0,0,.5) 0 -5px 10px, rgba(255,255,255,.5) 0 0px 0px;
+	   -moz-box-shadow: inset rgba(0,0,0,.4) 0 -1px 3px 1px, inset rgba(0,0,0,.5) 0 -5px 20px,  rgba(0,0,0,.5) 0 -5px 10px, rgba(255,255,255,.5) 0 0px 0px;
+		 -o-box-shadow: inset rgba(0,0,0,.4) 0 -1px 3px 1px, inset rgba(0,0,0,.5) 0 -5px 20px,  rgba(0,0,0,.5) 0 -5px 10px, rgba(255,255,255,.5) 0 0px 0px;
+			box-shadow: inset rgba(0,0,0,.4) 0 -1px 3px 1px, inset rgba(0,0,0,.5) 0 -5px 20px,  rgba(0,0,0,.5) 0 -5px 10px, rgba(255,255,255,.5) 0 0px 0px;
+}
+
+.eye:before {
+    background-color: #FFFFFF;
+    border-radius: 5px 5px 5px 5px;
+    content: "";
+    height: 10px;
+    left: 32%;
+    position: absolute;
+    top: 20%;
+    -webkit-transform: skewX(-10deg);
+	   -moz-transform: skewX(-10deg);
+		 -o-transform: skewX(-10deg);
+			transform: skewX(-10deg);
+    width: 10px;
+}
+</style>
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$(document).mousemove(function(e){
+		
+		var docW = $(window).width();
+		var docH = $(window).height();
+		
+		var diffX = (docW/2) - e.clientX;
+		var diffY = (docH/2)-100 - e.clientY;
+		
+		var dist = distance(docW/2,docH/2, e.clientX, e.clientY);
+		var distM = distance(docW/2,(docH/2)+60, e.clientX, e.clientY);
+		
+		// eye
+		var eye_background = Math.floor( diffX /-30 ) +'px '+ Math.floor( diffY /-30 ) +'px';		
+		var eye_translate =	Math.floor(diffX/-50 )+'px, '+ Math.floor(diffY/-100 )+'px';	
+		$(".eye").css({ 			"background-position":eye_background, "-webkit-transform":'translate3d('+eye_translate+',0)', 			"-moz-transform":'translate('+eye_translate+')' });
+		
+		
+		// eye lid
+		var eye_lid_p = 100+Math.floor( diffY /-20 );
+		var eye_lid = '-webkit-gradient(radial, 50% '+ eye_lid_p +'%, 20, 50% '+ eye_lid_p +'%, 50, color-stop(.5, rgba(0,0,0,0)), color-stop(.6, rgba(0,0,0,1)))';
+		$(".lid").css({ "-webkit-mask-image":eye_lid });
+	});
+});
+
+var distance = function(x1, y1, x2, y2){
+	return Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
+};
+</script>
+
+</head>
+
+<body>
+	<div style="padding-top:150px;" align="center">
+    	<table border="0" cellspacing="4" cellpadding="0">
+          <tr>
+            <td><div class="eye"></div></td>
+            <td><div class="eye"></div></td>
+          </tr>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0" type="plugin" group="content" method="upgrade">
+<!--Имя плагина которое отображается в расширениях -->
+  <name>glossary</name>
+<!--Дата создания плагина-->
+  <creationDate>2013-09-25</creationDate>
+<!--Автор плагина-->  
+  <author>Salauat</author>
+<!--Почта автора-->  
+  <authorEmail>sala.sdu@gmail.com</authorEmail>
+<!--Сайт автора-->    
+  <authorUrl>http://agregator.kz</authorUrl>
+<!--Копирайт-->  
+  <copyright>Copyright (C) 2013 PNHZ Glossary</copyright>
+<!--Лицензия-->    
+  <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
+<!--Версия плагина-->    
+  <version>1.0</version>
+<!--Описание плагина-->  
+  <description>Плагин PNHZ Glossary для joomla.</description>
+<!--Файлы которые нужно установить где socialjungle это папка куда нужно установить название должно совпадать с названием плагина -->  
+  <files>
+     <filename plugin="glossary">glossary.php</filename>
+  </files>
+ 
+<!--Языковые файлы сайта-->  
+    <languages>
+       <language tag="ru-RU">language/ru-RU/ru-RU.plg_content_glossary.ini</language>
+    </languages>
+ 
+ 
+<!--Конфигурация, такие параметры как default="1" задают установку этих значений по умолчанию когда их установили-->      
+  <config>
+    <fields name="params">
+      <fieldset name="basic"></fieldset>    
+	</fields>  
+  </config>    
+</extension>

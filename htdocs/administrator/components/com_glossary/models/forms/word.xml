@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset>
+
+              <field name="id" type="text" default="0" label="COM_GLOSSARY_FORM_LBL_WORD_ID"
+            readonly="true" class="readonly"
+            description="JGLOBAL_FIELD_ID_DESC" /> 
+
+       <field name="word" type="text"
+                
+            label="COM_GLOSSARY_FORM_LBL_WORD_WORD"
+            description="COM_GLOSSARY_FORM_DESC_WORD_WORD" 
+                
+                
+                 required="true" 
+            filter="raw"
+            size="32"
+            maxlength="255" /> 
+
+       <field name="desc" type="editor"
+                
+            label="COM_GLOSSARY_FORM_LBL_WORD_DESC"
+            description="COM_GLOSSARY_FORM_DESC_WORD_DESC" 
+                
+                
+                
+            width="500"
+            height="200"
+            cols="40"
+            rows="7" /> 
+
+       <field name="created_by" type="createdby" default="" 
+            label="COM_GLOSSARY_FORM_LBL_WORD_CREATED_BY"
+            description="COM_GLOSSARY_FORM_DESC_WORD_CREATED_BY"  /> 
+
+         <field
+        name="state"
+        type="list"
+        label="JSTATUS"
+        description="JFIELD_PUBLISHED_DESC"
+        class="inputbox"
+        size="1"
+        default="1">
+        <option value="1">JPUBLISHED</option>
+        <option value="0">JUNPUBLISHED</option>
+    </field> 
+
+                        <field name="checked_out" type="hidden" filter="unset" />
+        <field name="checked_out_time" type="hidden" filter="unset" />
+
+	</fieldset>
+
+</form>
