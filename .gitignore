@@ -1,6 +1,5 @@
-/.env
-/config/*
-/data/*
-/logs/*
-/www/**
-.DS_Store
+# /.env
+# /config/*
+# /data/*
+# /logs/*
+# .DS_Store
